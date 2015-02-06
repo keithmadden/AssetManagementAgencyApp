@@ -10,7 +10,10 @@ class CustomerTableGateway {
 
     public function getCustomers() {
         // execute a query to get all customer
-        $sqlQuery = "SELECT * FROM customer";
+        $sqlQuery = 
+                "SELECT c.*, b.address AS bankAddress " .
+                "FROM customer c " .
+                "LEFT JOIN branch b ON b.branch_id = c.branch_id";
 
         $statement = $this->connection->prepare($sqlQuery);
         $status = $statement->execute();

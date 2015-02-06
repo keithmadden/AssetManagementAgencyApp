@@ -65,5 +65,6 @@
 
         </form>
         <script type="text/javascript" src="js/customer.js"></script>
+        <script type="text/javascript" src="js/branch.js"></script>
     </body>
 </html>

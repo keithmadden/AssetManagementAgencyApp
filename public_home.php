@@ -1,23 +1,25 @@
 <?php
 require_once 'Customer.php';
+require_once 'Branch.php';
 require_once 'Connection.php';
 require_once 'CustomerTableGateway.php';
+require_once 'BranchTableGateway.php';
 
-$id = session_id();
-if ($id == "") {
-    session_start();
-}
+require 'ensureUserLoggedIn.php';
 
 $connection = Connection::getInstance();
 $gateway = new CustomerTableGateway($connection);
+$gatewayBranch = new BranchTableGateway($connection);
 
 $statement = $gateway->getCustomers();
+$statementBranch = $gatewayBranch->getBranches();
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <title>Asset Management Agency</title>
     </head>
     <body>
         <?php require 'toolbar.php' ?>

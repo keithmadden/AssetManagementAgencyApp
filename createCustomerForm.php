@@ -12,6 +12,7 @@ require 'ensureUserLoggedIn.php';
         <meta charset="UTF-8">
         <title></title>
         <script type="text/javascript" src="js/customer.js"></script>
+        <script type="text/javascript" src="js/createCustomer.js"></script>
     </head>
     <body>
         <?php require 'toolbar.php' ?>

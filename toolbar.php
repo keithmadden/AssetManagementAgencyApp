@@ -4,10 +4,14 @@ if ($session_id == "") {
     session_start();
 }
 if (isset($_SESSION['username'])) {
-    echo '<p><a href="home.php">Home</a></p>';
-    echo '<p><a href="logout.php">Logout</a></p>';
+    echo '<nav class="homeLog">';
+    echo '<a class="home" href="home.php">Home</a>';
+    echo '<a class="log" href="logout.php">Logout</a>';
+    echo '</nav>';
 }
 else {
-    echo '<p><a href="index.php">Home</a></p>';
-    echo '<p><a href="login.php">Login</a></p>';
+    echo '<nav class="homeLog">';
+    echo '<a class="home" href="home.php">Home</a>';
+    echo '<a class="log" href="logout.php">Logout</a>';
+    echo '</nav>';
 }

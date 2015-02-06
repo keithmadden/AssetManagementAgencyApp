@@ -1,6 +1,6 @@
 window.onload = function () {
     //-------------------------------------------------------------------------
-    // define an event listener for the '#createProgrammerForm'
+    // define an event listener for the '#createCustomerForm'
     //-------------------------------------------------------------------------
     var createCustomerForm = document.getElementById('createCustomerForm');
     if (createCustomerForm !== null) {
