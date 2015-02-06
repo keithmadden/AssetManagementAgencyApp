@@ -24,8 +24,11 @@ $statementBranch = $gatewayBranch->getBranchById($id);
 <html>
     <head>
         <meta charset="UTF-8">
+        <link href="css/Style.css" rel="stylesheet">
         <script type="text/javascript" src="js/branch.js"></script>
-        <title></title>
+        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Nunito:400,700|Raleway:400,700,800,600,500|Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
+        <title>Asset Management Agency</title>
     </head>
     <body>
         <?php require 'toolbar.php' ?>
@@ -34,8 +37,9 @@ $statementBranch = $gatewayBranch->getBranchById($id);
             echo '<p>'.$message.'</p>';
         }
         ?>
-        <table>
-            <tbody>
+        <h1 class="header">Asset Management Agency</h1>
+        <table class="customer">
+            <tbody class="attr">
                 <?php
                 $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
                     echo '<tr>';
@@ -58,9 +62,9 @@ $statementBranch = $gatewayBranch->getBranchById($id);
             </tbody>
         </table>
         <p>
-            <a href="editBranchForm.php?id=<?php echo $row['branch_id']; ?>">
+            <a class="createHome" href="editBranchForm.php?id=<?php echo $row['branch_id']; ?>">
                 Edit Branch</a>
-            <a class="deleteBranch" href="deleteBranch.php?id=<?php echo $row['branch_id']; ?>">
+            <a class="deleteBranch deleteView createHome" href="deleteBranch.php?id=<?php echo $row['branch_id']; ?>">
                 Delete Branch</a>
         </p>
     </body>

@@ -24,8 +24,11 @@ $statement = $gateway->getCustomerById($id);
 <html>
     <head>
         <meta charset="UTF-8">
+        <link href="css/Style.css" rel="stylesheet">
         <script type="text/javascript" src="js/customer.js"></script>
-        <title></title>
+        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Nunito:400,700|Raleway:400,700,800,600,500|Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
+        <title>Asset Management Agency</title>
     </head>
     <body>
         <?php require 'toolbar.php' ?>
@@ -34,8 +37,9 @@ $statement = $gateway->getCustomerById($id);
             echo '<p>'.$message.'</p>';
         }
         ?>
-        <table>
-            <tbody>
+        <h1 class="header">Asset Management Agency</h1>
+        <table class="customer">
+            <tbody class="attr">
                 <?php
                 $row = $statement->fetch(PDO::FETCH_ASSOC);
                     echo '<tr>';
@@ -58,9 +62,9 @@ $statement = $gateway->getCustomerById($id);
             </tbody>
         </table>
         <p>
-            <a href="editCustomerForm.php?id=<?php echo $row['Customer ID']; ?>">
+            <a class="createHome" href="editCustomerForm.php?id=<?php echo $row['Customer ID']; ?>">
                 Edit Customer</a>
-            <a class="deleteCustomer" href="deleteCustomer.php?id=<?php echo $row['Customer ID']; ?>">
+            <a class="deleteCustomer createHome deleteView" href="deleteCustomer.php?id=<?php echo $row['Customer ID']; ?>">
                 Delete Customer</a>
         </p>
     </body>

@@ -10,8 +10,10 @@ require 'ensureUserLoggedIn.php';
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
         <script type="text/javascript" src="js/branch.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Nunito:400,700|Raleway:400,700,800,600,500|Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
+        <title>Asset Management Agency</title>
     </head>
     <body>
         <?php require 'toolbar.php' ?>

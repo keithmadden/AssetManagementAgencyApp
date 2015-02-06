@@ -28,12 +28,16 @@ $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <link href="css/Style.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Nunito:400,700|Raleway:400,700,800,600,500|Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
+        <title>Asset Management Agency</title>
         <script type="text/javascript" src="js/branch.js"></script>
     </head>
     <body>
         <?php require 'toolbar.php' ?>
-        <h1>Edit Branch Form</h1>
+        <h1 class="header">Asset Management Agency</h1>
+        <h1 class="headerEdit" >Edit Branch Form</h1>
         <?php
         if (isset($errorMessage)) {
             echo '<p>Error: ' . $errorMessage . '</p>';
@@ -43,7 +47,7 @@ $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
             <input type="hidden" name="branch_id" value="<?php echo $id; ?>" />
             <table border="0">
                 <tbody>
-                    <tr>
+                    <tr class="subheadings">
                         <td>Address</td>
                         <td>
                             <input type="text" name="address" value="<?php
@@ -55,7 +59,7 @@ $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
                             <span id="addressError" class="error"></span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="subheadings">
                         <td>Phone</td>
                         <td>
                             <input type="text" name="phone" value="<?php
@@ -67,7 +71,7 @@ $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
                             <span id="phoneError" class="error"></span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="subheadings">
                         <td>Email</td>
                         <td>
                             <input type="text" name="manager" value="<?php
@@ -79,7 +83,7 @@ $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
                             <span id="managerError" class="error"></span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="subheadings">
                         <td>Mobile</td>
                         <td>
                             <input type="text" name="hours" value="<?php
@@ -91,7 +95,7 @@ $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
                             <span id="hoursError" class="error"></span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="subheadings">
                         <td></td>
                         <td>
                             <input type="submit" value="Edit Branch" name="editBranch" />

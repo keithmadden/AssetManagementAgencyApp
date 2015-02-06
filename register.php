@@ -2,16 +2,20 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <link href="css/Style.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Nunito:400,700|Raleway:400,700,800,600,500|Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
+        <title>Asset Management Agency</title>
     </head>
     <body>
+        <h1 class="header">Asset Management Agency</h1>
         <form id="registerForm" 
               action="checkRegister.php" 
               method="POST" 
               onsubmit="return validateRegistration(this);">
             <table border="0">
                 <tbody>
-                    <tr>
+                    <tr class="subheadings">
                         <td>Username</td>
                         <td>
                             <input type="text" name="username" value="<?php
@@ -28,7 +32,7 @@
                             </span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="subheadings">
                         <td>Password</td>
                         <td>
                             <input type="password" name="password" value="" />
@@ -41,7 +45,7 @@
                             </span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="subheadings">
                         <td>Confirm Password</td>
                         <td>
                             <input type="password" name="password2" value="" />
@@ -54,7 +58,7 @@
                             </span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="subheadings">
                         <td></td>
                         <td>
                             <input type="submit" value="Register" name="register" />

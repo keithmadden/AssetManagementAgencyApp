@@ -22,6 +22,7 @@ $statementBranch = $gatewayBranch->getBranches();
         <script type="text/javascript" src="js/customer.js"></script>
         <script type="text/javascript" src="js/branch.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Nunito:400,700|Raleway:400,700,800,600,500|Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
         <title>Asset Management Agency</title>
     </head>
     <body>
@@ -31,20 +32,22 @@ $statementBranch = $gatewayBranch->getBranches();
             echo '<p>'.$message.'</p>';
         }
         ?>
+        <h1 class="header">Asset Management Agency</h1>
+        
         <table class="customer">
             <thead>
-            <th>
+            <th class="cListHead">
                 Customer List
             </th>
-                <tr>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>Mobile</th>
-                    <th>Email</th>
-                    <th>Branch</th>
+            <tr class="subheadings">
+                    <th class="testing">Name</th>
+                    <th class="testing">Address</th>
+                    <th class="testing">Mobile</th>
+                    <th class="testingEmail">Email</th>
+                    <th class="testing">Branch</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="attr">
                 <?php
                 $row = $statement->fetch(PDO::FETCH_ASSOC);
                 while ($row) {
@@ -56,9 +59,9 @@ $statementBranch = $gatewayBranch->getBranches();
                     echo '<td>' . $row['email'] . '</td>';
                     echo '<td>' . $row['bankAddress'] . '</td>';
                     echo '<td>'
-                    . '<a href="viewCustomer.php?id='.$row['Customer ID'].'">View</a> '
-                    . '<a href="editCustomerForm.php?id='.$row['Customer ID'].'">Edit</a> '
-                    . '<a class="deleteCustomer" href="deleteCustomer.php?id='.$row['Customer ID'].'">Delete</a> '
+                    . '<a class="tableProps tablePropsFirst" href="viewCustomer.php?id='.$row['Customer ID'].'">View</a> '
+                    . '<a class="tableProps" href="editCustomerForm.php?id='.$row['Customer ID'].'">Edit</a> '
+                    . '<a class="deleteCustomer tableProps" href="deleteCustomer.php?id='.$row['Customer ID'].'">Delete</a> '
                     . '</td>';
                     echo '</tr>';
 
@@ -67,22 +70,22 @@ $statementBranch = $gatewayBranch->getBranches();
                 ?>
             </tbody>
         </table>
-        <p><a href="createCustomerForm.php">Create Customer</a></p>
+        <p><a class="createHome" href="createCustomerForm.php">Create Customer</a></p>
         <br />
         <br />
-        <table>
+        <table class="branch">
             <thead>
-            <th>
+            <th class="bListHead">
                 Branch List
             </th>
-                <tr>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Manager</th>
-                    <th>Hours</th>
+            <tr class="subheadings">
+                    <th class="testing">Address</th>
+                    <th class="testing">Phone</th>
+                    <th class="testing">Manager</th>
+                    <th class="testing">Hours</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="attr">
                 <?php
                 $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
                 while ($row) {
@@ -92,9 +95,9 @@ $statementBranch = $gatewayBranch->getBranches();
                     echo '<td>' . $row['manager'] . '</td>';
                     echo '<td>' . $row['hours'] . '</td>';
                     echo '<td>'
-                    . '<a href="viewBranch.php?id='.$row['branch_id'].'">View</a> '
-                    . '<a href="editBranchForm.php?id='.$row['branch_id'].'">Edit</a> '
-                    . '<a class="deleteBranch" href="deleteBranch.php?id='.$row['branch_id'].'">Delete</a> '
+                    . '<a class="tableProps tablePropsFirst" href="viewBranch.php?id='.$row['branch_id'].'">View</a> '
+                    . '<a class="tableProps" href="editBranchForm.php?id='.$row['branch_id'].'">Edit</a> '
+                    . '<a class="deleteBranch tableProps" href="deleteBranch.php?id='.$row['branch_id'].'">Delete</a> '
                     . '</td>';
                     echo '</tr>';
 
@@ -103,6 +106,6 @@ $statementBranch = $gatewayBranch->getBranches();
                 ?>
             </tbody>
         </table>
-        <p><a href="createBranchForm.php">Create Branch</a></p>
+        <p><a class="createHome" href="createBranchForm.php">Create Branch</a></p>
     </body>
 </html>
