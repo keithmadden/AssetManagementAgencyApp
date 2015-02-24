@@ -1,0 +1,109 @@
+/* 
+font-family: 'Arvo', serif;
+font-family: 'Great Vibes', cursive;
+font-family: 'Nunito', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Yanone Kaffeesatz', sans-serif;
+*/
+
+
+body {
+    background-color: #ECF0F1;
+}
+
+.homeLog {
+    float: right;
+    font-family: 'Arvo', serif;
+    font-weight: 700;
+    font-size: 1.2em;
+    padding-top: 15px;
+    color: #C3272B;
+}
+
+.home {
+    text-decoration: none;
+    color: #D24D57;
+}
+
+.log {
+    padding-left: 25px;
+    text-decoration: none;
+    color: #D24D57;
+}
+
+.home:hover, .log:hover {
+    color: #F22613;
+}
+
+.customer {
+    padding-top: 50px;
+    width: 100%;
+}
+.branch {
+    width: 100%;
+}
+
+
+.header {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 3em;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.cListHead, .bListHead{
+    font-family: 'Arvo', serif;
+    font-size: 2em;
+    padding-bottom: 20px;
+    color: #E68364;
+}
+
+.cListHead{
+    float: left;
+}
+
+.bListHead {
+    padding-top: 50px;
+    float: left;
+}
+
+.subheadings {
+    font-family: 'Nunito', sans-serif;
+    border: 1px solid black;
+    color: #C3272B;
+
+    padding-left: -50px;
+}
+
+.attr {
+    color: #757D75;
+}
+.tableProps {
+    text-decoration: none;
+    color: #CF3A24;
+    padding-left: 10px;
+}
+
+.createHome {
+    text-decoration: none;
+    font-size: 1.1em;
+    color: #CF3A24;
+}
+
+.testing {
+    width: 150px;
+}
+
+.testingEmail {
+    width: 200px;
+}
+
+.deleteView {
+    padding-left: 20px;
+}
+
+.headerEdit {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 2em;
+}
