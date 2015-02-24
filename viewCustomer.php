@@ -41,6 +41,8 @@ $statement = $gateway->getCustomerById($id);
         <h1 class="header">Asset Management Agency</h1>
         <table class="customer">
             <tbody class="attr">
+                
+                
                 <?php
                 $row = $statement->fetch(PDO::FETCH_ASSOC);
                     echo '<tr>';
