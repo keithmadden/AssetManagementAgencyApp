@@ -14,6 +14,8 @@ $statementBranch = $gatewayBranch->getBranches();
 <!DOCTYPE html>
 <html>
     <head>
+        
+        
         <meta charset="UTF-8">
         <link href="css/Style.css" rel="stylesheet">
         <script type="text/javascript" src="js/customer.js"></script>
