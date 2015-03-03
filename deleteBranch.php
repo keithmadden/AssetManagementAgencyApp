@@ -1,5 +1,4 @@
 <?php
-require_once 'Branch.php';
 require_once 'Connection.php';
 require_once 'BranchTableGateway.php';
 
@@ -20,5 +19,5 @@ $gatewayBranch = new BranchTableGateway($connection);
 
 $gatewayBranch->deleteBranch($id);
 
-header("Location: home.php");
+header("Location: viewBranches.php");
 ?>

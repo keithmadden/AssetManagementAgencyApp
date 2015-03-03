@@ -39,7 +39,7 @@ if (empty($errorMessage)) {
 
 if (empty($errorMessage)) {
     $_SESSION['username'] = $username;
-    header('Location: viewCustomers.php');
+    header('Location: index.php');
 }
 else {
     require 'login.php';

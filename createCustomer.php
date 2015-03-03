@@ -48,4 +48,4 @@ $emailValid = filter_var($email, FILTER_VALIDATE_EMAIL);
 
 $id = $gateway->insertCustomer($name, $address, $mobile, $email);
 
-header('Location: home.php');
+header('Location: viewCustomers.php');

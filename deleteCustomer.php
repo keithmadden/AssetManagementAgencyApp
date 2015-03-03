@@ -1,5 +1,4 @@
 <?php
-require_once 'Customer.php';
 require_once 'Connection.php';
 require_once 'CustomerTableGateway.php';
 
@@ -20,5 +19,5 @@ $gateway = new CustomerTableGateway($connection);
 
 $gateway->deleteCustomer($id);
 
-header("Location: home.php");
+header("Location: viewCustomers.php");
 ?>

@@ -1,5 +1,4 @@
 <?php
-require_once 'Branch.php';
 require_once 'Connection.php';
 require_once 'BranchTableGateway.php';
 
@@ -36,6 +35,8 @@ $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
     </head>
     <body>
         <?php require 'toolbar.php' ?>
+        <?php require 'header.php' ?>
+        <?php require 'mainMenu.php' ?>
         <h1 class="header">Asset Management Agency</h1>
         <h1 class="headerEdit" >Edit Branch Form</h1>
         <?php
@@ -105,5 +106,6 @@ $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
             </table>
 
         </form>
+        <?php require 'footer.php'; ?>
     </body>
 </html>

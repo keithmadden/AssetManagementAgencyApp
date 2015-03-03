@@ -10,13 +10,16 @@ require 'ensureUserLoggedIn.php';
 <html>
     <head>
         <meta charset="UTF-8">
+        <link href="css/Style.css" rel="stylesheet">
+        <script type="text/javascript" src="js/customer.js"></script>
         <script type="text/javascript" src="js/branch.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Nunito:400,700|Raleway:400,700,800,600,500|Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
-        <title>Asset Management Agency</title>
     </head>
     <body>
         <?php require 'toolbar.php' ?>
+        <?php require 'header.php' ?>
+        <?php require 'mainMenu.php' ?>
         <h1>Create Branch Form</h1>
         <?php
         if (isset($errorMessage)) {
@@ -63,5 +66,6 @@ require 'ensureUserLoggedIn.php';
             </table>
 
         </form>
+        <?php require 'footer.php'; ?>
     </body>
 </html>

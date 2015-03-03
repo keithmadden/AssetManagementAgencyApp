@@ -1,6 +1,4 @@
 <?php
-require_once 'Customer.php';
-require_once 'Branch.php';
 require_once 'Connection.php';
 require_once 'CustomerTableGateway.php';
 require_once 'BranchTableGateway.php';

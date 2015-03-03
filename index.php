@@ -1,6 +1,4 @@
 <?php
-require_once 'Customer.php';
-require_once 'Branch.php';
 require_once 'Connection.php';
 require_once 'CustomerTableGateway.php';
 require_once 'BranchTableGateway.php';
@@ -31,27 +29,26 @@ $statementBranch = $gatewayBranch->getBranches();
         <?php require 'mainMenu.php' ?>
         <h2>Welcome</h2>
 
-        <p>A software company employs many programmers. For each programmer, the
-            company needs to record the following details: name, email address,
-            mobile phone number, staff number, a description of their skill set,
-            and salary. Each programmer is assigned a manager. Each manager may
-            be assigned a number of programmers. For each manager, the company
-            needs to record the manager’s name, their office number, and their
-            extension number.</p>
+        <p>An asset management agency manages a portfolio of stocks and properties for its customers. 
+            For each customer, the agency needs to store the following details: name, address, 
+            mobile phone number, and email address.Each customer is assigned to a branch, 
+            usually the branch where the customer opened his or her account. Each branch can have 
+            several customers. For each branch, the following details need to be stored: the 
+            address of the branch, the phone number for the branch, the name of the branch 
+            manager, and the branch opening hours.</p>
 
-        <p>Each programmer will be given one or more computers to use. Each computer
-            will be assigned at most one programmer. For each computer, the company
-            needs to record the make and model of the computer, the operating system
-            it uses, and date the computer was bought, and the purchase price of the
-            computer.</p>
+        <p>Each customer has a portfolio of stock shares. One or more customers can own shares 
+            in each stock. For each stock, the agency needs to record the name of the stock, 
+            the 2-5 character stock symbol, the current price of the stock, and the total number 
+            of shares in that stock. For each collection of stock shares owned by a customer, 
+            the agency needs to record the date the customer bought the shares, the quantity 
+            of stock shares owned by the customer, and the price at which the customer bought 
+            the shares.</p>
 
-        <p>Each programmer can be assigned to work on a number of projects. Each
-            project can have a number of programmers assigned to it. For each project,
-            the company needs to record the name of the client the project is for, a
-            description of the project requirements, and the start date and proposed
-            end date for the project. For each assignment of a programmer to a project,
-            the date of the assignment needs to be recorded, along with the number of
-            hours per week the programmer should spend on that project.</p>
+        <p>In addition, each customer can have a portfolio of properties that they own. 
+            For each property, the agency needs to record the address of the property, 
+            the price paid for the property, the date the property was bought. 
+            Each property owned by only one customer.</p>
 
         <?php require 'footer.php'; ?>
     </body>

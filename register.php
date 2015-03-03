@@ -70,5 +70,6 @@
         </form>
         <script type="text/javascript" src="js/customer.js"></script>
         <script type="text/javascript" src="js/branch.js"></script>
+        <?php require 'footer.php'; ?>
     </body>
 </html>

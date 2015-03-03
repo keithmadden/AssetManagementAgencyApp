@@ -2,13 +2,19 @@
 require_once 'Connection.php';
 require_once 'CustomerTableGateway.php';
 require_once 'BranchTableGateway.php';
+require_once 'PropertyTableGateway.php';
 require 'ensureUserLoggedIn.php';
 
 $connection = Connection::getInstance();
+
 $gateway = new CustomerTableGateway($connection);
 $gatewayBranch = new BranchTableGateway($connection);
+$gatewayProperty = new PropertyTableGateway($connection);
+
 $statement = $gateway->getCustomers();
 $statementBranch = $gatewayBranch->getBranches();
+$statementProperty = $gatewayProperty->getProperty();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,47 +27,44 @@ $statementBranch = $gatewayBranch->getBranches();
         <script type="text/javascript" src="js/branch.js"></script>
         <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Nunito:400,700|Raleway:400,700,800,600,500|Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
-        <title>Asset Management Agency</title>
     </head>
     <body>
         <?php require 'toolbar.php' ?>
         <?php require 'header.php' ?>
         <?php require 'mainMenu.php' ?>
         
-        <table class="customer">
+        <table class="property">
             <thead>
             <th class="cListHead">
-                Customer List
+                Property List
             </th>
             <tr class="subheadings">
-                    <th class="testing">Name</th>
                     <th class="testing">Address</th>
-                    <th class="testing">Mobile</th>
-                    <th class="testingEmail">Email</th>
-                    <th class="testing">Branch</th>
+                    <th class="testing">Price</th>
+                    <th class="testing">Date</th>
+                    <th class="testing">Customer</th>
                 </tr>
             </thead>
             <tbody class="attr">
                 <?php
-                $row = $statement->fetch(PDO::FETCH_ASSOC);
+                $row = $statementProperty->fetch(PDO::FETCH_ASSOC);
                 while ($row) {
-                    echo '<td>' . $row['name'] . '</td>';
                     echo '<td>' . $row['address'] . '</td>';
-                    echo '<td>' . $row['mobile'] . '</td>';
-                    echo '<td>' . $row['email'] . '</td>';
-                    echo '<td>' . $row['bankAddress'] . '</td>';
+                    echo '<td>' . $row['price'] . '</td>';
+                    echo '<td>' . $row['date'] . '</td>';
+                    echo '<td>' . $row['customer'] . '</td>';
                     echo '<td>'
-                    . '<a class="tableProps tablePropsFirst" href="viewCustomer.php?id='.$row['Customer ID'].'">View</a> '
-                    . '<a class="tableProps" href="editCustomerForm.php?id='.$row['Customer ID'].'">Edit</a> '
-                    . '<a class="deleteCustomer tableProps" href="deleteCustomer.php?id='.$row['Customer ID'].'">Delete</a> '
+                    . '<a class="tableProps tablePropsFirst" href="viewProperty.php?id='.$row['property_id'].'">View</a> '
+                    . '<a class="tableProps" href="editCustomerForm.php?id='.$row['property_id'].'">Edit</a> '
+                    . '<a class="deleteCustomer tableProps" href="deleteCustomer.php?id='.$row['property_id'].'">Delete</a> '
                     . '</td>';
                     echo '</tr>';
-                    $row = $statement->fetch(PDO::FETCH_ASSOC);
+                    $row = $statementProperty->fetch(PDO::FETCH_ASSOC);
                 }
                 ?>
             </tbody>
         </table>
-        <p><a class="createHome" href="createCustomerForm.php">Create Customer</a></p>
+        <p><a class="createHome" href="createPropertyForm.php">Create Property</a></p>
         <?php require 'footer.php'; ?>
     </body>
 </html>

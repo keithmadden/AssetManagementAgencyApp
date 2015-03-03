@@ -1,5 +1,4 @@
 <?php
-require_once 'Branch.php';
 require_once 'Connection.php';
 require_once 'BranchTableGateway.php';
 
@@ -24,4 +23,4 @@ $hours = $_POST['hours'];
 
 $id = $gatewayBranch->insertBranch($address, $phone, $manager, $hours);
 
-header('Location: home.php');
+header('Location: viewBranches.php');

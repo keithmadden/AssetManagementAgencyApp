@@ -1,9 +1,12 @@
 <?php
+
 class CustomerTableGateway {
     private $connection;
+    
     public function __construct($c) {
         $this->connection = $c;
     }
+    
     public function getCustomers() {
         // execute a query to get all customer
         $sqlQuery = 
@@ -17,6 +20,27 @@ class CustomerTableGateway {
         }
         return $statement;
     }
+    
+    public function getCustomerByBranchId($branch_id) {
+        // execute a query to get all customer
+        $sqlQuery = 
+                "SELECT c.*, b.address AS bankAddress
+                FROM customer c
+                LEFT JOIN branch b ON b.branch_id = c.branch_id
+                WHERE c.branch_id = :branch_id";
+        
+        $params = array(
+            'branch_id' => $branch_id
+        );
+        $statement = $this->connection->prepare($sqlQuery);
+        $status = $statement->execute($params);
+        
+        if (!$status) {
+            die("Could not retrieve customers");
+        }
+        return $statement;
+    }
+    
     public function getCustomerById($id) {
         // execute a query to get the user with the specified id
         $sqlQuery = 
@@ -34,8 +58,10 @@ class CustomerTableGateway {
         }
         return $statement;
     }
+    
     public function insertCustomer($n, $a, $m, $e, $bId) {
-        $sqlQuery = "INSERT INTO customer " .
+        $sqlQuery = 
+                "INSERT INTO customer " .
                 "(name, address, mobile, email, branch_id) " .
                 "VALUES (:name, :address, :mobile, :email, :branch_id)";
         $statement = $this->connection->prepare($sqlQuery);
@@ -53,6 +79,7 @@ class CustomerTableGateway {
         $id = $this->connection->lastInsertId();
         return $id;
     }
+    
     public function deleteCustomer($id) {
         $sqlQuery = "DELETE FROM customer WHERE `Customer ID` = :CustomerID";
         $statement = $this->connection->prepare($sqlQuery);
@@ -65,6 +92,7 @@ class CustomerTableGateway {
         }
         return ($statement->rowCount() == 1);
     }
+    
     public function updateCustomer($id, $n, $a, $m, $e, $bId) {
         $sqlQuery =
                 "UPDATE customer SET " .
@@ -75,6 +103,7 @@ class CustomerTableGateway {
                 "email = :email " .
                 "WHERE `Customer ID` = :CustomerID";
         $statement = $this->connection->prepare($sqlQuery);
+        
         $params = array(
             "CustomerID" => $id,
             "branch_id" => $bId,
@@ -83,6 +112,13 @@ class CustomerTableGateway {
             "mobile" => $m,
             "email" => $e
         );
+        
+        //echo '<pre>';
+        //print_r($sqlQuery);
+        //print_r($_POST);
+        //print_r($params);
+        //echo '</pre>';
+        
         $status = $statement->execute($params);
         return ($statement->rowCount() == 1);
     }

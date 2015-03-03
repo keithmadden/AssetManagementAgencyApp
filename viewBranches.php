@@ -27,41 +27,39 @@ $statementBranch = $gatewayBranch->getBranches();
         <?php require 'toolbar.php' ?>
         <?php require 'header.php' ?>
         <?php require 'mainMenu.php' ?>
-        
-        <table class="customer">
+            
+        <table class="branch">
             <thead>
-            <th class="cListHead">
-                Customer List
+            <th class="bListHead">
+                Branch List
             </th>
             <tr class="subheadings">
-                    <th class="testing">Name</th>
                     <th class="testing">Address</th>
-                    <th class="testing">Mobile</th>
-                    <th class="testingEmail">Email</th>
-                    <th class="testing">Branch</th>
-                </tr>
+                    <th class="testing">Phone</th>
+                    <th class="testing">Manager</th>
+                    <th class="testing">Hours</th>
+            </tr>
             </thead>
             <tbody class="attr">
                 <?php
-                $row = $statement->fetch(PDO::FETCH_ASSOC);
+                $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
                 while ($row) {
-                    echo '<td>' . $row['name'] . '</td>';
                     echo '<td>' . $row['address'] . '</td>';
-                    echo '<td>' . $row['mobile'] . '</td>';
-                    echo '<td>' . $row['email'] . '</td>';
-                    echo '<td>' . $row['bankAddress'] . '</td>';
+                    echo '<td>' . $row['phone'] . '</td>';
+                    echo '<td>' . $row['manager'] . '</td>';
+                    echo '<td>' . $row['hours'] . '</td>';
                     echo '<td>'
-                    . '<a class="tableProps tablePropsFirst" href="viewCustomer.php?id='.$row['Customer ID'].'">View</a> '
-                    . '<a class="tableProps" href="editCustomerForm.php?id='.$row['Customer ID'].'">Edit</a> '
-                    . '<a class="deleteCustomer tableProps" href="deleteCustomer.php?id='.$row['Customer ID'].'">Delete</a> '
+                    . '<a class="tableProps tablePropsFirst" href="viewBranch.php?id='.$row['branch_id'].'">View</a> '
+                    . '<a class="tableProps" href="editBranchForm.php?id='.$row['branch_id'].'">Edit</a> '
+                    . '<a class="deleteBranch tableProps" href="deleteBranch.php?id='.$row['branch_id'].'">Delete</a> '
                     . '</td>';
                     echo '</tr>';
-                    $row = $statement->fetch(PDO::FETCH_ASSOC);
+                    $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
                 }
                 ?>
             </tbody>
         </table>
-        <p><a class="createHome" href="createCustomerForm.php">Create Customer</a></p>
-        <?php require 'footer.php'; ?>
+        <p><a class="createHome" href="createBranchForm.php">Create Branch</a></p>
     </body>
+    <?php require 'footer.php'; ?>
 </html>
