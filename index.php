@@ -55,4 +55,78 @@ $statementBranch = $gatewayBranch->getBranches();
 
         <?php require 'footer.php'; ?>
     </body>
+        <?php 
+        if (isset($message)) {
+            echo '<p>'.$message.'</p>';
+        }
+        ?>
+        <h1 class="header">Asset Management Agency</h1>
+        
+        <table class="customer">
+            <thead>
+            <th class="cListHead">
+                Customer List
+            </th>
+            <tr class="subheadings">
+                    <th class="testing">Name</th>
+                    <th class="testing">Address</th>
+                    <th class="testing">Mobile</th>
+                    <th class="testingEmail">Email</th>
+                    <th class="testing">Branch</th>
+                </tr>
+            </thead>
+            <tbody class="attr">
+                <?php
+                $row = $statement->fetch(PDO::FETCH_ASSOC);
+                while ($row) {
+
+                    
+                    echo '<td>' . $row['name'] . '</td>';
+                    echo '<td>' . $row['address'] . '</td>';
+                    echo '<td>' . $row['mobile'] . '</td>';
+                    echo '<td>' . $row['email'] . '</td>';
+                    echo '<td>' . $row['bankAddress'] . '</td>';
+                    echo '<td>'
+                    . '</td>';
+                    echo '</tr>';
+                    
+                    $row = $statement->fetch(PDO::FETCH_ASSOC);
+                }
+                ?>
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <table class="branch">
+            <thead>
+            <th class="bListHead">
+                Branch List
+            </th>
+            <tr class="subheadings">
+                    <th class="testing">Address</th>
+                    <th class="testing">Phone</th>
+                    <th class="testing">Manager</th>
+                    <th class="testing">Hours</th>
+                </tr>
+            </thead>
+            <tbody class="attr">
+                <?php
+                $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
+                while ($row) {
+
+
+                    echo '<td>' . $row['address'] . '</td>';
+                    echo '<td>' . $row['phone'] . '</td>';
+                    echo '<td>' . $row['manager'] . '</td>';
+                    echo '<td>' . $row['hours'] . '</td>';
+                    echo '<td>'
+                    . '</td>';
+                    echo '</tr>';
+
+                    $row = $statementBranch->fetch(PDO::FETCH_ASSOC);
+                }
+                ?>
+            </tbody>
+        </table>
+    </body>
 </html>

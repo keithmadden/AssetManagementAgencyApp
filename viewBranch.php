@@ -10,6 +10,12 @@ if ($id == "") {
 
 require 'ensureUserLoggedIn.php';
 
+
+if (!isset($_GET) || !isset($_GET['id'])) {
+    die('Invalid request');
+}
+$id = $_GET['id'];
+
 $connection = Connection::getInstance();
 $gatewayBranch = new BranchTableGateway($connection);
 
