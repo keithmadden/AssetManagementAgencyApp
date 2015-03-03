@@ -45,7 +45,7 @@ else if ($password !== $password2) {
 if (empty($errorMessage)) {
     $gateway->insertUser($username, $password);
     $_SESSION['username'] = $username;
-    header('Location: home.php');
+    header('Location: viewCustomers.php');
 }
 else {
     require 'register.php';
