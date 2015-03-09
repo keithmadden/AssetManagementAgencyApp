@@ -15,41 +15,377 @@ $statementBranch = $gatewayBranch->getBranches();
 
 
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <link href="css/Style.css" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Nunito:400,700|Raleway:400,700,800,600,500|Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
-        <title>Asset Management Agency</title>
-    </head>
-    <body>
-        <?php require 'toolbar.php' ?>
-        <?php require 'header.php' ?>
-        <?php require 'mainMenu.php' ?>
-        <h2>Welcome</h2>
+<html lang="en">
 
-        <p>An asset management agency manages a portfolio of stocks and properties for its customers. 
-            For each customer, the agency needs to store the following details: name, address, 
-            mobile phone number, and email address.Each customer is assigned to a branch, 
-            usually the branch where the customer opened his or her account. Each branch can have 
-            several customers. For each branch, the following details need to be stored: the 
-            address of the branch, the phone number for the branch, the name of the branch 
-            manager, and the branch opening hours.</p>
+<head>
 
-        <p>Each customer has a portfolio of stock shares. One or more customers can own shares 
-            in each stock. For each stock, the agency needs to record the name of the stock, 
-            the 2-5 character stock symbol, the current price of the stock, and the total number 
-            of shares in that stock. For each collection of stock shares owned by a customer, 
-            the agency needs to record the date the customer bought the shares, the quantity 
-            of stock shares owned by the customer, and the price at which the customer bought 
-            the shares.</p>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Asset Management Agency</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,100,300,500,600,700,900,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/content.css" />
+    <script src="js/modernizr.custom.js"></script>
+</head>
 
-        <p>In addition, each customer can have a portfolio of properties that they own. 
-            For each property, the agency needs to record the address of the property, 
-            the price paid for the property, the date the property was bought. 
-            Each property owned by only one customer.</p>
+<body id="page-top" class="index">
 
-        <?php require 'footer.php'; ?>
-    </body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <!--<img src="../images/logo.png" class="logo">-->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-heading navbar-brand page-scroll navbar-mainText" style="margin-left:5px;" href="#page-top">Aperture</a>
+                <a class="navbar-subheading page-scroll" href="#page-top">Asset Management</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Why Join</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">Who Are We</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#subscribe">Subscribe</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <i class="fa fa-search fa-2x" href="#"></i>
+                    </li>
+                    <li>
+                        <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed">
+                        <button type="button">Login</button>
+                        <div class="morph-content">
+                            <div>
+                                <div class="content-style-form content-style-form-1">
+                                    <span class="icon icon-close">Close the dialog</span>
+                                    <img src="img/logo.png" class="subLogo loginLogo" alt="Aperture" style="width:80px;height:80px">
+                                    <h2>Login</h2>
+                                    <form action="checkLogin.php" method="POST">
+                                        <p>
+                                            <label>Username</label>
+                                            <input type="text"
+                                            name="username"
+                                            value="<?php echo $username; ?>" />
+                                            <span id="usernameError" class="error">
+                                            <?php
+                                            if (isset($errorMessage) && isset($errorMessage['username'])) {
+                                                echo $errorMessage['username'];
+                                            }
+                                         ?>
+                                        </p>
+                                        <p>
+                                            <label>Password</label>
+                                            <input type="password" name="password" value="" />
+                                            <span id="passwordError" class="error">
+                                                <?php
+                                                if (isset($errorMessage) && isset($errorMessage['password'])) {
+                                                    echo $errorMessage['password'];
+                                                }
+                                                ?>
+                                            </span>
+                                        </p>
+                                        <p><button><input type="submit" value="Login" name="login" /></button></p>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- morph-button -->
+                    </li>
+                     <li>
+                        <div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+                            <button type="button">Signup</button>
+                            <div class="morph-content">
+                                <div>
+                                    <div class="content-style-form content-style-form-2">
+                                        <span class="icon icon-close">Close the dialog</span>
+                                        <h2>Sign Up</h2>
+                                        <form>
+                                            <p><label>Email</label><input type="text" /></p>
+                                            <p><label>Password</label><input type="password" /></p>
+                                            <p><label>Repeat Password</label><input type="password" /></p>
+                                            <p><button>Sign Up</button></p>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- morph-button -->
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="intro-text">
+                    <div class="intro-lead-in">Aperture Management</div>
+                    <div class="intro-heading">We will hold all your financial issues in one place</div>
+                    
+                </div>
+            </div>
+        </header>
+
+    <!-- Why Join Section -->
+    <section id="services">
+        <div class="container background">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Why Join Aperture</h2>
+                    <h3 class="section-subheading text-muted">One of the top leading Asset Management Companys 
+                        gaining customers and keeping them happy.</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <li class="branding">
+                        <img src="img/branding.svg">
+                        <h4 class="service-heading">BRANDING</h4>
+                        <p class="text-muted textJoin">In todays world you need leading and professional 
+                                            teaching to become the best at what you do. To 
+                                            strive in todays world you need the right teachings.</p>
+                   </li>
+                </div>
+                <div class="col-md-4">
+                    <li class="interactive">
+                        <img src="img/interactive.svg">
+                        <h4 class="service-heading">INTERACTIVE</h4>
+                        <p class="text-muted textJoin">We have enough resources to get anybody started. 
+                                            These are designed and made by the top 
+                                            professionals in the game.</p>
+                    </li>
+                </div>
+                <div class="col-md-4">
+                    <li class="production">
+                        <img src="img/production.svg">
+                        <h4 class="service-heading">RESOURCES</h4>
+                        <p class="text-muted textJoin">We have collected many resources throughout the
+                                            years we have been a business. That is why many customers
+                                            voted us number one Asset Management company of the year.</p>
+                    </li>
+                </div>
+            </div>  
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">WHO WE ARE</h2>
+                    <h3 class="section-subheading text-muted">Our team of experts will guide you in the management  you need to control not only your properties but your stock</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <h4>Lorem ipsum</h4>
+                        <p class="text-muted">Lead Manager</p>
+                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <h4>Lorem ipsum</h4>
+                        <p class="text-muted">Lead Marketer</p>
+                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <h4>Lorem ipsum</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section id="subscribe" class="bg-darkest-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <img src="img/logo.png" class="subLogo" alt="Aperture" style="width:300px;height:300px">
+                    <h3 class="section-subheading text-muted">Subscribe to our Newsletter for latest news.</h3>
+                    <form method="post" name="subscribe" id="newsletter" class="form-inline">
+                        <input name="email_newsletter" class="email_newsletter" type="email" value="" placeholder="Your Email" class="form-control">
+                        <button id="submit-newsletter" class="button_outline"> Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/classie.js"></script>
+        <script src="js/uiMorphingButton_fixed.js"></script>
+        <script>
+            (function() {
+                var docElem = window.document.documentElement, didScroll, scrollPosition;
+
+                // trick to prevent scrolling when opening/closing button
+                function noScrollFn() {
+                    window.scrollTo( scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0 );
+                }
+
+                function noScroll() {
+                    window.removeEventListener( 'scroll', scrollHandler );
+                    window.addEventListener( 'scroll', noScrollFn );
+                }
+
+                function scrollFn() {
+                    window.addEventListener( 'scroll', scrollHandler );
+                }
+
+                function canScroll() {
+                    window.removeEventListener( 'scroll', noScrollFn );
+                    scrollFn();
+                }
+
+                function scrollHandler() {
+                    if( !didScroll ) {
+                        didScroll = true;
+                        setTimeout( function() { scrollPage(); }, 60 );
+                    }
+                };
+
+                function scrollPage() {
+                    scrollPosition = { x : window.pageXOffset || docElem.scrollLeft, y : window.pageYOffset || docElem.scrollTop };
+                    didScroll = false;
+                };
+
+                scrollFn();
+
+                [].slice.call( document.querySelectorAll( '.morph-button' ) ).forEach( function( bttn ) {
+                    new UIMorphingButton( bttn, {
+                        closeEl : '.icon-close',
+                        onBeforeOpen : function() {
+                            // don't allow to scroll
+                            noScroll();
+                        },
+                        onAfterOpen : function() {
+                            // can scroll again
+                            canScroll();
+                        },
+                        onBeforeClose : function() {
+                            // don't allow to scroll
+                            noScroll();
+                        },
+                        onAfterClose : function() {
+                            // can scroll again
+                            canScroll();
+                        }
+                    } );
+                } );
+
+                // for demo purposes only
+                [].slice.call( document.querySelectorAll( 'form button' ) ).forEach( function( bttn ) { 
+                    bttn.addEventListener( 'click', function( ev ) { ev.preventDefault(); } );
+                } );
+            })();
+        </script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/style.js"></script>
+
+</body>
+
+</html>
+
 </html>
