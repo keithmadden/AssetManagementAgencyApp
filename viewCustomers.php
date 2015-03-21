@@ -11,57 +11,150 @@ $statement = $gateway->getCustomers();
 $statementBranch = $gatewayBranch->getBranches();
 ?>
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Asset Management Agency</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,100,300,500,600,700,900,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/content.css" />
+    <script src="js/modernizr.custom.js"></script>
+</head>
+
+<body id="page-top" class="index">
+    
+    <?php
+        if (!isset($username)) {
+            $username = '';
+        }
+    ?>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <!--<img src="../images/logo.png" class="logo">-->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-heading navbar-brand page-scroll navbar-mainText" style="margin-left:5px;" href="index.php">Aperture</a>
+                <a class="navbar-subheading page-scroll" href="#index.php">Asset Management</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#tables">Customers</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <i class="fa fa-search fa-2x" href="#"></i>
+                    </li>
+                    <li>
+                    </li>
+                     <li>
+                            <button type="button" class="signButton">Sign Out</button>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+        
+    <!-- /.Tables sections -->
+    <section id="customers">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="cListHead">
+                        <img class="tableImageHeader" src="img/table/customer.svg" />
+                    </div>
+                </div>
+                <div class="row">
+                    <table>
+                        <tr class="subheadings">
+                                <th class="testing">Name</th>
+                                <th class="testing">Address</th>
+                                <th class="testing">Mobile</th>
+                                <th class="testingEmail">Email</th>
+                                <th class="testing">Branch</th>
+                            </tr>
+                        <tbody class="attr">
+                            <?php
+                            $row = $statement->fetch(PDO::FETCH_ASSOC);
+                            while ($row) {
+                                echo '<td>' . $row['name'] . '</td>';
+                                echo '<td>' . $row['address'] . '</td>';
+                                echo '<td>' . $row['mobile'] . '</td>';
+                                echo '<td>' . $row['email'] . '</td>';
+                                echo '<td>' . $row['bankAddress'] . '</td>';
+                                echo '<td>'
+                                . '<a class="tableProps tablePropsFirst" href="viewCustomer.php?id='.$row['Customer ID'].'">View</a> '
+                                . '<a class="tableProps" href="editCustomerForm.php?id='.$row['Customer ID'].'">Edit</a> '
+                                . '<a class="deleteCustomer tableProps" href="deleteCustomer.php?id='.$row['Customer ID'].'">Delete</a> '
+                                . '</td>';
+                                echo '</tr>';
+                                $row = $statement->fetch(PDO::FETCH_ASSOC);
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                    <p><a class="createHome" href="createCustomerForm.php">Create Customer</a></p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
         
         
-        <meta charset="UTF-8">
-        <link href="css/Style.css" rel="stylesheet">
-        <script type="text/javascript" src="js/customer.js"></script>
-        <script type="text/javascript" src="js/branch.js"></script>
-        <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Great+Vibes|Nunito:400,700|Raleway:400,700,800,600,500|Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css'>
-        <title>Asset Management Agency</title>
-    </head>
-    <body>
-        <?php require 'toolbar.php' ?>
-        <?php require 'header.php' ?>
-        <?php require 'mainMenu.php' ?>
-        
-        <table class="customer">
-            <thead>
-            <th class="cListHead">
-                Customer List
-            </th>
-            <tr class="subheadings">
-                    <th class="testing">Name</th>
-                    <th class="testing">Address</th>
-                    <th class="testing">Mobile</th>
-                    <th class="testingEmail">Email</th>
-                    <th class="testing">Branch</th>
-                </tr>
-            </thead>
-            <tbody class="attr">
-                <?php
-                $row = $statement->fetch(PDO::FETCH_ASSOC);
-                while ($row) {
-                    echo '<td>' . $row['name'] . '</td>';
-                    echo '<td>' . $row['address'] . '</td>';
-                    echo '<td>' . $row['mobile'] . '</td>';
-                    echo '<td>' . $row['email'] . '</td>';
-                    echo '<td>' . $row['bankAddress'] . '</td>';
-                    echo '<td>'
-                    . '<a class="tableProps tablePropsFirst" href="viewCustomer.php?id='.$row['Customer ID'].'">View</a> '
-                    . '<a class="tableProps" href="editCustomerForm.php?id='.$row['Customer ID'].'">Edit</a> '
-                    . '<a class="deleteCustomer tableProps" href="deleteCustomer.php?id='.$row['Customer ID'].'">Delete</a> '
-                    . '</td>';
-                    echo '</tr>';
-                    $row = $statement->fetch(PDO::FETCH_ASSOC);
-                }
-                ?>
-            </tbody>
-        </table>
-        <p><a class="createHome" href="createCustomerForm.php">Create Customer</a></p>
-        <?php require 'footer.php'; ?>
+    <!-- Footer Section -->
+    <footer class="footerHome"">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
     </body>
 </html>

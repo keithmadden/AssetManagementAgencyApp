@@ -2,6 +2,7 @@
 require_once 'Connection.php';
 require_once 'CustomerTableGateway.php';
 require_once 'BranchTableGateway.php';
+require_once 'toolbar.php';
 
 require 'ensureUserLoggedIn.php';
 
@@ -37,6 +38,12 @@ $statementBranch = $gatewayBranch->getBranches();
 </head>
 
 <body id="page-top" class="index">
+    
+    <?php
+        if (!isset($username)) {
+            $username = '';
+        }
+    ?>
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
@@ -94,7 +101,8 @@ $statementBranch = $gatewayBranch->getBranches();
                                             if (isset($errorMessage) && isset($errorMessage['username'])) {
                                                 echo $errorMessage['username'];
                                             }
-                                         ?>
+                                            ?>
+                                            </span>
                                         </p>
                                         <p>
                                             <label>Password</label>
@@ -107,7 +115,7 @@ $statementBranch = $gatewayBranch->getBranches();
                                                 ?>
                                             </span>
                                         </p>
-                                        <p><button><input type="submit" value="Login" name="login" /></button></p>
+                                        <p><input class="signButton signButtonMorph" type="submit" value="Login" name="login" onclick="document.location.href = 'home.php'"></p>
                                     </form>
                                 </div>
                             </div>

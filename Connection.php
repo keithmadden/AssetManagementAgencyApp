@@ -7,10 +7,10 @@ class Connection {
         if (Connection::$connection === NULL) {
             // connect to the database
 
-            $host = "daneel";
+            $host = "localhost";
             $database = "n00134034";
-            $username = "N00134034";
-            $password = "N00134034";
+            $username = "root";
+            $password = "";
 
             $dsn = "mysql:host=" . $host . ";dbname=" . $database;
             Connection::$connection = new PDO($dsn, $username, $password);

@@ -37,8 +37,8 @@
 
 .morph-button-fixed > button {
 	z-index: 1000;
-	width: 60%;
-	height: 50%;
+	width: 70%;
+	height: 60%;
 	-webkit-transition: opacity 0.1s 0.5s;
 	transition: opacity 0.1s 0.5s;
 }
