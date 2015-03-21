@@ -1,5 +1,7 @@
 <?php
 
+
+
 class BranchTableGateway {
 
     private $connection;
