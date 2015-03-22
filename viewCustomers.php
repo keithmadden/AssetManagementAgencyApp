@@ -63,7 +63,7 @@ $statementBranch = $gatewayBranch->getBranches();
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#tables">Customers</a>
+                        <a class="page-scroll" href="#customers">Customers</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -88,38 +88,38 @@ $statementBranch = $gatewayBranch->getBranches();
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="cListHead">
-                        <img class="tableImageHeader" src="img/table/customer.svg" />
+                        <img class="tableImageHeader img-responsive" src="img/table/customer.svg" />
                     </div>
                 </div>
                 <div class="row">
-                    <table>
-                        <tr class="subheadings">
-                                <th class="testing">Name</th>
-                                <th class="testing">Address</th>
-                                <th class="testing">Mobile</th>
-                                <th class="testingEmail">Email</th>
-                                <th class="testing">Branch</th>
-                            </tr>
-                        <tbody class="attr">
-                            <?php
-                            $row = $statement->fetch(PDO::FETCH_ASSOC);
-                            while ($row) {
-                                echo '<td>' . $row['name'] . '</td>';
-                                echo '<td>' . $row['address'] . '</td>';
-                                echo '<td>' . $row['mobile'] . '</td>';
-                                echo '<td>' . $row['email'] . '</td>';
-                                echo '<td>' . $row['bankAddress'] . '</td>';
-                                echo '<td>'
-                                . '<a class="tableProps tablePropsFirst" href="viewCustomer.php?id='.$row['Customer ID'].'">View</a> '
-                                . '<a class="tableProps" href="editCustomerForm.php?id='.$row['Customer ID'].'">Edit</a> '
-                                . '<a class="deleteCustomer tableProps" href="deleteCustomer.php?id='.$row['Customer ID'].'">Delete</a> '
-                                . '</td>';
-                                echo '</tr>';
+                        <table class="table">
+                            <tr class="subheadings">
+                                    <th class="testing">Name</th>
+                                    <th class="testing">Address</th>
+                                    <th class="testing">Mobile</th>
+                                    <th class="testingEmail">Email</th>
+                                    <th class="testing">Branch</th>
+                                </tr>
+                            <tbody class="attr">
+                                <?php
                                 $row = $statement->fetch(PDO::FETCH_ASSOC);
-                            }
-                            ?>
-                        </tbody>
-                    </table>
+                                while ($row) {
+                                    echo '<td>' . $row['name'] . '</td>';
+                                    echo '<td>' . $row['address'] . '</td>';
+                                    echo '<td>' . $row['mobile'] . '</td>';
+                                    echo '<td>' . $row['email'] . '</td>';
+                                    echo '<td>' . $row['bankAddress'] . '</td>';
+                                    echo '<td>'
+                                    . '<a class="tableProps tablePropsFirst" href="viewCustomer.php?id='.$row['Customer ID'].'"><img class="tableImageSmall img-responsive" src="img/table/view.svg" /></a> '
+                                    . '<a class="tableProps" href="editCustomerForm.php?id='.$row['Customer ID'].'"><img class="tableImageSmall img-responsive" src="img/table/edit.svg" /></a> '
+                                    . '<a class="deleteCustomer tableProps" href="deleteCustomer.php?id='.$row['Customer ID'].'"><img class="tableImageSmall img-responsive" src="img/table/delete.svg" /></a> '
+                                    . '</td>';
+                                    echo '</tr>';
+                                    $row = $statement->fetch(PDO::FETCH_ASSOC);
+                                }
+                                ?>
+                            </tbody>
+                        </table>
                     <p><a class="createHome" href="createCustomerForm.php">Create Customer</a></p>
                 </div>
             </div>
@@ -129,20 +129,18 @@ $statementBranch = $gatewayBranch->getBranches();
         
         
     <!-- Footer Section -->
-    <footer class="footerHome"">
+    <footer class="footerHome">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <span class="copyright">Copyright</span>
                 </div>
                 <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
+                    <ul class="browse">Browse:
+                        <li>Search</li>
+                        <li>Play</li>
+                        <li>Explore</li>
+                        <li>Question</li>
                     </ul>
                 </div>
                 <div class="col-md-4">

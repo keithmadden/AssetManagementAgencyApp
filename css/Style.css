@@ -86,7 +86,8 @@ body {
 .createHome {
     text-decoration: none;
     font-size: 1.1em;
-    color: #CF3A24;
+    color: #2B2B2B;
+    font-weight: 500;
 }
 
 .testing {
@@ -175,6 +176,11 @@ h6 {
     text-transform: uppercase;
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
+}
+
+ul li {
+    text-decoration: none;
+    list-style-type: none;
 }
 
 .img-centered {
@@ -494,12 +500,19 @@ section h3.section-subheading {
 
 #services {
     height: 100%;
-    background-image: url(../img/background.svg);
+    background-image: url(../img/background.png);
     background-size:50% 50%;
     -o-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
     background-size:cover;
     background-color: #f7ca18;
+    background-size: 100%;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center;
 }
 
 .background {
@@ -522,6 +535,10 @@ section h3.section-subheading {
     border: 7px solid #fff;
 }
 
+.team-member img:hover {
+    opacity: 0.4;
+}
+
 .team-member h4 {
     margin-top: 25px;
     margin-bottom: 0;
@@ -533,6 +550,10 @@ section h3.section-subheading {
     margin-top: 0;
 }
 
+.hoverText {
+    padding-top: 20px;
+}
+
 footer {
     padding: 80px 0;
     text-align: center;
@@ -540,6 +561,11 @@ footer {
     border-style: solid;
     border-top: 1px solid #464646;
     padding-bottom: 50px;
+}
+
+.browse {
+    color: #f7ca18;
+    margin-top: -40px;
 }
 
 footer span.copyright {
@@ -565,6 +591,11 @@ footer ul.quicklinks:hover {
 
 ul.social-buttons {
     margin-bottom: 0;
+    margin-top: -120px;
+}
+
+ul.social-buttons:hover {
+    visibility: visible;
 }
 
 ul.social-buttons li a {
@@ -750,4 +781,28 @@ body {
 
 .tableName {
     padding-left: 200px;
+}
+
+.brandImage {
+    max-width: 60%;
+    margin-left: 70px;
+    padding: 0;
+    border: 0;
+}
+
+.tableImageSmall {
+    height: 30px;
+    width: 30px;
+    margin-top: -25px;
+}
+
+.navbar-header {
+    background-color: #2B2B2B;
+}
+
+@media screen and (min-width: 768px) {
+ 
+.custom-collapse .collapse{
+        display:block;
+    }  
 }

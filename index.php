@@ -57,8 +57,8 @@ $statementBranch = $gatewayBranch->getBranches();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-heading navbar-brand page-scroll navbar-mainText" style="margin-left:5px;" href="#page-top">Aperture</a>
-                <a class="navbar-subheading page-scroll" href="#page-top">Asset Management</a>
+                <a class="navbar-mainText hidden-sm" style="margin-left:5px;" href="#page-top">Aperture</a>
+                <a class="navbar-subheading page-scroll hidden-sm" href="#page-top">Asset Management</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -82,7 +82,7 @@ $statementBranch = $gatewayBranch->getBranches();
                         <i class="fa fa-search fa-2x" href="#"></i>
                     </li>
                     <li>
-                        <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed">
+                        <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed hidden-sm">
                         <button type="button">Login</button>
                         <div class="morph-content">
                             <div>
@@ -123,7 +123,7 @@ $statementBranch = $gatewayBranch->getBranches();
                     </div><!-- morph-button -->
                     </li>
                      <li>
-                        <div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed">
+                        <div class="morph-button morph-button-modal morph-button-modal-3 morph-button-fixed hidden-sm">
                             <button type="button">Signup</button>
                             <div class="morph-content">
                                 <div>
@@ -165,14 +165,14 @@ $statementBranch = $gatewayBranch->getBranches();
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Why Join Aperture</h2>
-                    <h3 class="section-subheading text-muted">One of the top leading Asset Management Companys 
+                    <h3 class="section-subheading text-muted">One of the top leading Asset Management Companies 
                         gaining customers and keeping them happy.</h3>
                 </div>
             </div>
             <div class="row text-center">
                 <div class="col-md-4">
                     <li class="branding">
-                        <img src="img/branding.svg">
+                        <img class="brandImage img-responsive" src="img/branding.png">
                         <h4 class="service-heading">BRANDING</h4>
                         <p class="text-muted textJoin">In todays world you need leading and professional 
                                             teaching to become the best at what you do. To 
@@ -181,7 +181,7 @@ $statementBranch = $gatewayBranch->getBranches();
                 </div>
                 <div class="col-md-4">
                     <li class="interactive">
-                        <img src="img/interactive.svg">
+                        <img class="brandImage img-responsive" src="img/interactive.png">
                         <h4 class="service-heading">INTERACTIVE</h4>
                         <p class="text-muted textJoin">We have enough resources to get anybody started. 
                                             These are designed and made by the top 
@@ -190,7 +190,7 @@ $statementBranch = $gatewayBranch->getBranches();
                 </div>
                 <div class="col-md-4">
                     <li class="production">
-                        <img src="img/production.svg">
+                        <img class="brandImage img-responsive" src="img/production.png">
                         <h4 class="service-heading">RESOURCES</h4>
                         <p class="text-muted textJoin">We have collected many resources throughout the
                                             years we have been a business. That is why many customers
@@ -213,47 +213,26 @@ $statementBranch = $gatewayBranch->getBranches();
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <h4>Lorem ipsum</h4>
+                        <h4 class="whoweHeader">Lorem ipsum</h4>
                         <p class="text-muted">Lead Manager</p>
                         <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
+                        <p class="text-muted hoverText">She throws one hell of a party.</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <h4>Lorem ipsum</h4>
+                        <h4 class="whoweHeader">Lorem ipsum</h4>
                         <p class="text-muted">Lead Marketer</p>
                         <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
+                        <p class="text-muted hoverText">This man is the key to the project.</p>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
-                        <h4>Lorem ipsum</h4>
+                        <h4 class="whoweHeader">Lorem ipsum</h4>
                         <p class="text-muted">Lead Developer</p>
                         <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
-                        <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                        </ul>
+                        <p class="text-muted hoverText">We pay him to sit down and eat the office food.</p>
                     </div>
                 </div>
             </div>
@@ -273,7 +252,6 @@ $statementBranch = $gatewayBranch->getBranches();
                     </form>
                 </div>
             </div>
-            
         </div>
     </section>
 
@@ -285,13 +263,11 @@ $statementBranch = $gatewayBranch->getBranches();
                     <span class="copyright">Copyright</span>
                 </div>
                 <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
+                    <ul class="browse">Browse:
+                        <li>Search</li>
+                        <li>Play</li>
+                        <li>Explore</li>
+                        <li>Question</li>
                     </ul>
                 </div>
                 <div class="col-md-4">
