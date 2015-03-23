@@ -49,20 +49,20 @@ $statementBranch = $gatewayBranch->getBranches();
     <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
+            <div class="navbar-header page-scroll navSmall">
                 <!--<img src="../images/logo.png" class="logo">-->
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-mainText hidden-sm" style="margin-left:5px;" href="#page-top">Aperture</a>
-                <a class="navbar-subheading page-scroll hidden-sm" href="#page-top">Asset Management</a>
+                <a class="navbar-mainText mainTextFirst hidden-sm navText" style="margin-left:5px;" href="#page-top">Aperture<br></a>
+                <a class="navbar-mainText hidden-sm navText" style="margin-left:5px;" href="#page-top">Asset Management</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse navSmall" id="navbar-collapse-1">>
                 <ul class="nav navbar-nav navbar-left">
                     <li class="hidden">
                         <a href="#page-top"></a>
@@ -79,7 +79,7 @@ $statementBranch = $gatewayBranch->getBranches();
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <i class="fa fa-search fa-2x" href="#"></i>
+                        <i class="fa fa-search fa-2x searchIcon" href="#"></i>
                     </li>
                     <li>
                         <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed hidden-sm">
@@ -172,7 +172,7 @@ $statementBranch = $gatewayBranch->getBranches();
             <div class="row text-center">
                 <div class="col-md-4">
                     <li class="branding">
-                        <img class="brandImage img-responsive" src="img/branding.png">
+                        <img class="brandImage img-responsive hidden-sm hidden-xs" src="img/branding.png">
                         <h4 class="service-heading">BRANDING</h4>
                         <p class="text-muted textJoin">In todays world you need leading and professional 
                                             teaching to become the best at what you do. To 
@@ -181,7 +181,7 @@ $statementBranch = $gatewayBranch->getBranches();
                 </div>
                 <div class="col-md-4">
                     <li class="interactive">
-                        <img class="brandImage img-responsive" src="img/interactive.png">
+                        <img class="brandImage img-responsive hidden-sm hidden-xs" src="img/interactive.png">
                         <h4 class="service-heading">INTERACTIVE</h4>
                         <p class="text-muted textJoin">We have enough resources to get anybody started. 
                                             These are designed and made by the top 
@@ -190,7 +190,7 @@ $statementBranch = $gatewayBranch->getBranches();
                 </div>
                 <div class="col-md-4">
                     <li class="production">
-                        <img class="brandImage img-responsive" src="img/production.png">
+                        <img class="brandImage img-responsive hidden-sm hidden-xs" src="img/production.png">
                         <h4 class="service-heading">RESOURCES</h4>
                         <p class="text-muted textJoin">We have collected many resources throughout the
                                             years we have been a business. That is why many customers
@@ -260,14 +260,16 @@ $statementBranch = $gatewayBranch->getBranches();
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright</span>
+                    <span class="copyright text-muted hidden-xs">Copyright</span>
                 </div>
                 <div class="col-md-4">
-                    <ul class="browse">Browse:
-                        <li>Search</li>
-                        <li>Play</li>
-                        <li>Explore</li>
-                        <li>Question</li>
+                    <ul class="list-group browse">
+                        <a class="footerLinks" href="#page-top"><li class="list-group-item">Browse:</li>
+                        <li class="list-group-item">Search</li>
+                        <li class="list-group-item">Play</li>
+                        <li class="list-group-item">Explore</li>
+                        <li class="list-group-item">Question</li>
+                        </a>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -372,4 +374,3 @@ $statementBranch = $gatewayBranch->getBranches();
 
 </html>
 
-</html>

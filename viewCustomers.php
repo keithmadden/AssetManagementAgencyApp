@@ -40,30 +40,36 @@ $statementBranch = $gatewayBranch->getBranches();
         }
     ?>
 
-    <!-- Navigation -->
+        <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
+            <div class="navbar-header page-scroll navSmall">
                 <!--<img src="../images/logo.png" class="logo">-->
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-heading navbar-brand page-scroll navbar-mainText" style="margin-left:5px;" href="index.php">Aperture</a>
-                <a class="navbar-subheading page-scroll" href="#index.php">Asset Management</a>
+                <a class="navbar-mainText mainTextFirst hidden-sm navText" style="margin-left:5px;" href="home.php">Aperture<br></a>
+                <a class="navbar-mainText hidden-sm navText" style="margin-left:5px;" href="home.php">Asset Management</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse navSmall" id="navbar-collapse-1">>
                 <ul class="nav navbar-nav navbar-left">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#customers">Customers</a>
+                        <a class="page-scroll" href="viewCustomers.php">Customers</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="viewBranches.php">Branches</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="viewProperties.php">Properties</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -73,7 +79,7 @@ $statementBranch = $gatewayBranch->getBranches();
                     <li>
                     </li>
                      <li>
-                            <button type="button" class="signButton">Sign Out</button>
+                            <button type="button" class="signButton" onclick="document.location.href = 'index.php'">Sign Out</button>
                     </li>
                 </ul>
             </div>
@@ -86,61 +92,64 @@ $statementBranch = $gatewayBranch->getBranches();
     <section id="customers">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 col-md-offset-4">
+                <div class="col-md-4 col-md-offset-5">
                     <div class="cListHead">
                         <img class="tableImageHeader img-responsive" src="img/table/customer.svg" />
                     </div>
                 </div>
                 <div class="row">
-                        <table class="table">
-                            <tr class="subheadings">
-                                    <th class="testing">Name</th>
-                                    <th class="testing">Address</th>
-                                    <th class="testing">Mobile</th>
-                                    <th class="testingEmail">Email</th>
-                                    <th class="testing">Branch</th>
-                                </tr>
-                            <tbody class="attr">
-                                <?php
+                    <table class="table-striped col-lg-8 col-lg-offset-2">
+                        <tr class="subheadings">
+                                <th class="testing">Name</th>
+                                <th class="testing">Address</th>
+                                <th class="testing">Mobile</th>
+                                <th class="testingEmail">Email</th>
+                                <th class="testing">Branch</th>
+                            </tr>
+                        <tbody class="attr">
+                            <?php
+                            $row = $statement->fetch(PDO::FETCH_ASSOC);
+                            while ($row) {
+                                echo '<td>' . $row['name'] . '</td>';
+                                echo '<td>' . $row['address'] . '</td>';
+                                echo '<td>' . $row['mobile'] . '</td>';
+                                echo '<td>' . $row['email'] . '</td>';
+                                echo '<td>' . $row['bankAddress'] . '</td>';
+                                echo '<td>'
+                                . '<a class="tableProps tablePropsFirst" href="viewCustomer.php?id='.$row['Customer ID'].'"><img class="tableImageSmall img-responsive" src="img/table/view.svg" /></a> '
+                                . '<a class="tableProps" href="editCustomerForm.php?id='.$row['Customer ID'].'"><img class="tableImageSmall img-responsive" src="img/table/edit.svg" /></a> '
+                                . '<a class="deleteCustomer tableProps" href="deleteCustomer.php?id='.$row['Customer ID'].'"><img class="tableImageSmall img-responsive" src="img/table/delete.svg" /></a> '
+                                . '</td>';
+                                echo '</tr>';
                                 $row = $statement->fetch(PDO::FETCH_ASSOC);
-                                while ($row) {
-                                    echo '<td>' . $row['name'] . '</td>';
-                                    echo '<td>' . $row['address'] . '</td>';
-                                    echo '<td>' . $row['mobile'] . '</td>';
-                                    echo '<td>' . $row['email'] . '</td>';
-                                    echo '<td>' . $row['bankAddress'] . '</td>';
-                                    echo '<td>'
-                                    . '<a class="tableProps tablePropsFirst" href="viewCustomer.php?id='.$row['Customer ID'].'"><img class="tableImageSmall img-responsive" src="img/table/view.svg" /></a> '
-                                    . '<a class="tableProps" href="editCustomerForm.php?id='.$row['Customer ID'].'"><img class="tableImageSmall img-responsive" src="img/table/edit.svg" /></a> '
-                                    . '<a class="deleteCustomer tableProps" href="deleteCustomer.php?id='.$row['Customer ID'].'"><img class="tableImageSmall img-responsive" src="img/table/delete.svg" /></a> '
-                                    . '</td>';
-                                    echo '</tr>';
-                                    $row = $statement->fetch(PDO::FETCH_ASSOC);
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    <p><a class="createHome" href="createCustomerForm.php">Create Customer</a></p>
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
+                <div class="row">
+                    <p><a class="createHome" href="createCustomerForm.php">Create New Customer</a></p>
+                </div>
             </div>
         </div>
     </section>
         
         
     <!-- Footer Section -->
-    <footer class="footerHome">
+    <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">Copyright</span>
+                    <span class="copyright text-muted hidden-xs">Copyright</span>
                 </div>
                 <div class="col-md-4">
-                    <ul class="browse">Browse:
-                        <li>Search</li>
-                        <li>Play</li>
-                        <li>Explore</li>
-                        <li>Question</li>
+                    <ul class="list-group browse">
+                        <a class="footerLinks" href="#page-top"><li class="list-group-item">Browse:</li>
+                        <li class="list-group-item">Search</li>
+                        <li class="list-group-item">Play</li>
+                        <li class="list-group-item">Explore</li>
+                        <li class="list-group-item">Question</li>
+                        </a>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -154,5 +163,7 @@ $statementBranch = $gatewayBranch->getBranches();
             </div>
         </div>
     </footer>
+    
+    
     </body>
 </html>
