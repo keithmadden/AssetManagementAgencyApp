@@ -197,6 +197,10 @@ ul li {
     background-color: #2b2b2b;
 }
 
+.bg-middle-gray {
+    background-color: #464646;
+}
+
 .btn-primary {
     border-color: #f7ca18;
     text-transform: uppercase;
@@ -506,7 +510,7 @@ section h3.section-subheading {
 
 #services {
     height: 100%;
-    background-image: url(../img/background.png);
+    background-image: url(../img/background.svg);
     background-size:50% 50%;
     -o-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
@@ -567,6 +571,10 @@ footer {
     border-style: solid;
     border-top: 1px solid #464646;
     padding-bottom: 50px;
+}
+
+.footerLogo {
+    margin-top: -50px;
 }
 
 .browse {
@@ -800,7 +808,7 @@ body {
     height: 30px;
     width: 30px;
     margin-top: -15px;
-    margin-left: 20px;
+    margin-left: 30px
 }
 
 .navbar-header {
@@ -861,4 +869,12 @@ body {
 
 .btnForm {
     margin-left: 100px;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #FFF8F0;
+}
+
+.tableImageHeaderProp {
+    height: 170px;
 }

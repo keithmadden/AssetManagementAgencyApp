@@ -28,6 +28,7 @@ $statementBranch = $gatewayBranch->getBranches();
     <title>Asset Management Agency</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,100,300,500,600,700,900,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
@@ -152,8 +153,8 @@ $statementBranch = $gatewayBranch->getBranches();
         <header>
             <div class="container">
                 <div class="intro-text">
-                    <div class="intro-lead-in">Aperture Management</div>
-                    <div class="intro-heading">We will hold all your financial issues in one place</div>
+                    <div class="intro-lead-in animated  fadeInUpBig">Aperture Management</div>
+                    <div class="intro-heading animated  fadeInDownBig">We will hold all your financial issues in one place</div>
                     
                 </div>
             </div>
@@ -172,7 +173,7 @@ $statementBranch = $gatewayBranch->getBranches();
             <div class="row text-center">
                 <div class="col-md-4">
                     <li class="branding">
-                        <img class="brandImage img-responsive hidden-sm hidden-xs" src="img/branding.png">
+                        <img class="brandImage img-responsive hidden-sm hidden-xs" src="img/branding.svg">
                         <h4 class="service-heading">BRANDING</h4>
                         <p class="text-muted textJoin">In todays world you need leading and professional 
                                             teaching to become the best at what you do. To 
@@ -181,7 +182,7 @@ $statementBranch = $gatewayBranch->getBranches();
                 </div>
                 <div class="col-md-4">
                     <li class="interactive">
-                        <img class="brandImage img-responsive hidden-sm hidden-xs" src="img/interactive.png">
+                        <img class="brandImage img-responsive hidden-sm hidden-xs" src="img/interactive.svg">
                         <h4 class="service-heading">INTERACTIVE</h4>
                         <p class="text-muted textJoin">We have enough resources to get anybody started. 
                                             These are designed and made by the top 
@@ -190,7 +191,7 @@ $statementBranch = $gatewayBranch->getBranches();
                 </div>
                 <div class="col-md-4">
                     <li class="production">
-                        <img class="brandImage img-responsive hidden-sm hidden-xs" src="img/production.png">
+                        <img class="brandImage img-responsive hidden-sm hidden-xs" src="img/production.svg">
                         <h4 class="service-heading">RESOURCES</h4>
                         <p class="text-muted textJoin">We have collected many resources throughout the
                                             years we have been a business. That is why many customers
@@ -240,7 +241,7 @@ $statementBranch = $gatewayBranch->getBranches();
     </section>
 
     <!-- Subscribe Section -->
-    <section id="subscribe" class="bg-darkest-gray">
+    <section id="subscribe" class="bg-middle-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -259,10 +260,7 @@ $statementBranch = $gatewayBranch->getBranches();
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <span class="copyright text-muted hidden-xs">Copyright</span>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-4 hidden-sm hidden-xs">
                     <ul class="list-group browse">
                         <a class="footerLinks" href="#page-top"><li class="list-group-item">Browse:</li>
                         <li class="list-group-item">Search</li>
@@ -271,6 +269,9 @@ $statementBranch = $gatewayBranch->getBranches();
                         <li class="list-group-item">Question</li>
                         </a>
                     </ul>
+                </div>
+                <div class="col-md-4">
+                    <img src="img/logo.png" class="footerLogo animated infinite fadeInOut" style="width:150px;height:150px">
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline quicklinks">
